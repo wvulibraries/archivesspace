@@ -1,4 +1,3 @@
-
 CREATE USER 'archivesspace'@'localhost' IDENTIFIED BY 'password';
 
 DROP DATABASE IF EXISTS `archivesspace`;
