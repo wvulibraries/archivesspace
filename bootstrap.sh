@@ -10,31 +10,43 @@ yum -y install \
 rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 yum -y install mysql-community-server mysql-community-client mysql-community-devel mysql-community-common mysql-community-libs mysql-community-release
 
-cp /vagrant/archivesspace-v1.3.0.zip /home/
-cd /home/
-wget https://github.com/archivesspace/archivesspace/releases/download/v1.3.0/archivesspace-v1.3.0.zip
-unzip archivesspace-v1.3.0.zip
-rm -f archivesspace-v1.3.0.zip
+echo "Setup archives space  -----------------------------------------------------"
+echo "---------------------------------------------------------------------------"
+cd /vagrant/src/
+# wget https://github.com/archivesspace/archivesspace/releases/download/v1.4.2/archivesspace-v1.4.2.zip
+unzip archivesspace-v1.4.2.zip
+rm -f archivesspace-v1.4.2.zipar
 
 ## copy over local configs
-cp -f /vagrant/config.rb /home/archivesspace/config/config.rb
-cp -f /vagrant/archivesspace.sh /home/archivesspace/config/archivesspace.sh
+echo "Copying Local Configs -----------------------------------------------------"
+echo "---------------------------------------------------------------------------"
+cp -f /vagrant/config.rb /vagrant/src/archivesspace/config/config.rb
+
+
+echo "Custom Plugins  -----------------------------------------------------------"
+echo "---------------------------------------------------------------------------"
+cd /vagrant/src/archivesspace
+rm -rf /vagrant/src/archivesspace/plugins
+ln -s /vagrant/plugins /vagrant/src/archivesspace/plugins
+
 
 ## setup mysql
-cd /home/archivesspace/lib
+echo "Setting up Mysql ----------------------------------------------------------"
+echo "---------------------------------------------------------------------------"
+cd /vagrant/src/archivesspace/lib
 curl -Oq http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar
 
 systemctl enable mysqld
 systemctl start mysqld
 
 mysql -u root < /vagrant/mysqlSetup.sql
-bash /home/archivesspace/scripts/setup-database.sh
+bash /vagrant/src/archivesspace/scripts/setup-database.sh
 
 /usr/sbin/useradd -M archivesspace
-chown archivesspace /home/archivesspace/ -R
+chown archivesspace /vagrant/src/archivesspace/ -R
 
 cd /etc/init.d
-ln -s /home/archivesspace/archivesspace.sh archivesspace
+ln -s /vagrant/src/archivesspace/archivesspace.sh archivesspace
 
 chkconfig archivesspace on
 /etc/init.d/archivesspace start
