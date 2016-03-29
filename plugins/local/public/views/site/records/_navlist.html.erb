@@ -1,6 +1,5 @@
-
 <div id="">
-  <ul class="nav nav-list as-nav-list" data-spy="affix" data-offset-top="300" style="top:0>
+  <ul id="affixNavFix" class="nav nav-list as-nav-list" data-spy="affix" style="top:0>
     <li><a href="#summary"><%= I18n.t("#{record_type}._public.section.summary") %> <span class="icon-chevron-right"></span></a></li>
 
     <% entries.each do |entry| %>
@@ -29,4 +28,14 @@
 
 <script>
   var RECORD_URI = "<%= record.uri %>";
+  
+  // AffixFix
+  $('#affixNavFix').affix({
+	  offset: {
+		top: 300,
+		bottom: function () {
+		  return (this.bottom = $('footer').outerHeight(true))
+		}
+	  }
+	});
 </script>
