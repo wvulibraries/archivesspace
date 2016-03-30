@@ -1,5 +1,5 @@
 <div id="">
-  <ul class="nav nav-list as-nav-list" data-spy="affix">
+  <ul id="affixNavFix" class="nav nav-list as-nav-list" data-spy="affix">
     <li><a href="#summary"><%= I18n.t("#{record_type}._public.section.summary") %> <span class="icon-chevron-right"></span></a></li>
 
     <% entries.each do |entry| %>
@@ -26,11 +26,11 @@
 
     <% if record_type == "resource" %>
       <% AppConfig[:public_formats_resource_links].each do |type| %>
-        <li><%= link_to I18n.t("plugins.public_formats.#{type}"), "#{request.original_url}/format/#{type}" %></li>  
+        <li><%= link_to I18n.t("plugins.public_formats.#{type}"), "#{request.original_url}/format/#{type}" %></li>
       <% end  %>
     <% elsif record_type == "digital_object" %>
       <% AppConfig[:public_formats_digital_object_links].each do |type| %>
-        <li><%= link_to I18n.t("plugins.public_formats.#{type}"), "#{request.original_url}/format/#{type}" %></li>  
+        <li><%= link_to I18n.t("plugins.public_formats.#{type}"), "#{request.original_url}/format/#{type}" %></li>
       <% end  %>
     <% end  %>
   </ul>
