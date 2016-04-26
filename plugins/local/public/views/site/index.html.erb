@@ -1,0 +1,70 @@
+<% set_title I18n.t("brand.home") %>
+
+<br/>
+
+<div class="well">
+  <div class="row-fluid">
+
+    <div class="span8">
+
+      <h3>West Virginia &amp; Regional History Center Guide to Archives and Manuscripts</h3>
+      <p><%= I18n.t("brand.welcome_search_label") %></p>
+
+      <div class="tab-content">
+        <div id="simpleSearch" class="tab-pane active">
+          <%= render_aspace_partial :partial => "simple_search" %>
+        </div>
+        <div id="advancedSearch" class="tab-pane">
+          <%= render_aspace_partial :partial => "advanced_search" %>
+        </div>
+      </div>
+
+      <ul class="search-switcher">
+        <li class="active">
+          <a href="#simpleSearch" data-toggle="tab"><%= I18n.t("actions.hide_advanced_search") %></a>
+        </li>
+        <li>
+          <a href="#advancedSearch" data-toggle="tab"><%= I18n.t("actions.show_advanced_search") %></a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="span4">
+      <p>
+        The West Virginia & Regional History Center holds more than 4,000
+        archives and manuscripts collections that document the history of West
+        Virginia and the Central Appalachian region. These collections contain
+        the business records and family papers of early settlers; the letters
+        and diaries of the men, women, soldiers, and politicians, who founded a
+        state in the midst of the Civil War; the papers of early industrial and
+        labor leaders who shaped the state’s economic and political systems;
+        county court records that document social history and genealogy;
+        congressional and political papers documenting the history of state and
+         national public policy; the research papers of West Virginia folklorists;
+         and the manuscripts of prominent Appalachian authors.
+       </p>
+
+      <p>
+        Topical strengths include early settlement, the Revolutionary War, Civil
+        War and statehood, politics and policy, industrial development,
+        agriculture, churches, folk heritage, genealogy, literary arts, the
+        natural environment, railroads, schools, and World Wars I and II.
+      </p>
+
+      <p>
+        Collection guides describe and list the contents of collections and
+        contain information about the person, family, or organization that created
+        the collection. For research assistance or to schedule a visit, please
+        contact the West Virginia & Regional History Center.
+      </p>
+
+      <p>
+        We are in the process of moving collection guides to this website. In
+        the meantime, please visit
+        <a href="https://findingaids.lib.wvu.edu">findingaids.lib.wvu.edu</a>
+        to view all collection guides.
+      </p>
+    </div>
+
+  </div>
+</div>

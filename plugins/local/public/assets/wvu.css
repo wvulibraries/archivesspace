@@ -53,6 +53,10 @@ header p,footer p {
     left: 52px;
 }
 
+.lib-logo-text a {
+  color: #fff;
+}
+
 .content-pane {
     background-color: #fff;
     box-shadow: none;
