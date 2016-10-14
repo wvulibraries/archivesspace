@@ -10,7 +10,7 @@ yum -y install \
 	java-1.7.0 wget
 
 rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-yum -y install mysql-community-server mysql-community-client mysql-community-devel mysql-community-common mysql-community-libs mysql-community-release
+yum -y install mysql-community-server mysql-community-client mysql-community-devel mysql-community-common mysql-community-libs mysql-community-release cabextract
 rpm -Uvh msttcore-fonts-installer-2.6-1.noarch.rpm
 
 cp /vagrant/archivesspace-v$VERSION.zip /home/
